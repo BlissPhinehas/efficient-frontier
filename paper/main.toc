@@ -1,0 +1,23 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Theoretical Framework}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Portfolio Return and Variance}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The Markowitz Optimization Problem}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Quadratic Programming Formulation}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}The Minimum Variance Portfolio}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}The Sharpe Ratio and Tangency Portfolio}{4}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Data and Methodology}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Asset Universe}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Data Collection and Alignment}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Return Computation}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Stress Test Windows}{6}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Efficient Frontier Construction}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Parameter Estimates}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Frontier Results}{8}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Capital Market Line and Tangency Portfolio}{9}{section.5}%
+\contentsline {section}{\numberline {6}Stress Testing: Crisis Period Analysis}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Frontier Shift Results}{10}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}2008 Financial Crisis}{11}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}2020 COVID-19 Crash}{12}{subsection.6.3}%
+\contentsline {section}{\numberline {7}The Limits of Mean-Variance Optimization}{12}{section.7}%
+\contentsline {section}{\numberline {8}Conclusion}{13}{section.8}%
+\contentsfinish 
