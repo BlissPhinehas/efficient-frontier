@@ -5,6 +5,7 @@
 library(quadprog)
 library(ggplot2)
 library(zoo)
+library(dplyr)
 
 # ── 1. Load data ──────────────────────────────────────────────────────────────
 
@@ -118,10 +119,23 @@ p_stress <- ggplot() +
              aes(x = vol, y = ret, color = period),
              size = 4, shape = 18) +
 
-  geom_text(data = tangency_points,
-            aes(x = vol, y = ret, label = paste("Tangency\n", period),
-                color = period),
-            hjust = -0.08, size = 2.8, fontface = "bold", show.legend = FALSE) +
+  geom_text(data = tangency_points |>
+              dplyr::mutate(
+                nudge_x = dplyr::case_when(
+                  period == "Full Period (2004–2023)"  ~ -0.055,
+                  period == "2008 Financial Crisis"    ~  0.008,
+                  period == "2020 COVID Crash"         ~  0.008
+                ),
+                nudge_y = dplyr::case_when(
+                  period == "Full Period (2004–2023)"  ~ -0.04,
+                  period == "2008 Financial Crisis"    ~ -0.04,
+                  period == "2020 COVID Crash"         ~ -0.04
+                )
+              ),
+            aes(x = vol + nudge_x, y = ret + nudge_y,
+                label = period, color = period),
+            size = 2.8, fontface = "bold", show.legend = FALSE,
+            hjust = 0) +
 
   scale_color_manual(values = period_colors, name = "Period") +
 

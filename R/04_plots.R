@@ -3,6 +3,7 @@
 
 library(ggplot2)
 library(zoo)
+library(dplyr)
 
 # ── 1. Load results ───────────────────────────────────────────────────────────
 
@@ -39,11 +40,36 @@ p_frontier <- ggplot() +
              aes(x = vol, y = ret),
              color = "#E67E22", size = 3, shape = 17) +
 
-  # Asset labels
-  geom_text(data = asset_points,
-            aes(x = vol, y = ret, label = ticker),
-            hjust = -0.15, vjust = 0.4, size = 3.2,
-            color = "grey30", fontface = "bold") +
+  # Asset labels — manually nudged to avoid overlap
+  geom_text(data = asset_points |>
+              dplyr::mutate(
+                nudge_x = dplyr::case_when(
+                  ticker == "GLD"  ~  0.008,
+                  ticker == "JNJ"  ~  0.008,
+                  ticker == "PG"   ~  0.008,
+                  ticker == "TLT"  ~  0.008,
+                  ticker == "SPY"  ~  0.008,
+                  ticker == "XOM"  ~ -0.055,
+                  ticker == "MSFT" ~  0.008,
+                  ticker == "JPM"  ~  0.008,
+                  ticker == "AAPL" ~  0.008,
+                  ticker == "AMZN" ~  0.008
+                ),
+                nudge_y = dplyr::case_when(
+                  ticker == "GLD"  ~  0.008,
+                  ticker == "JNJ"  ~  0.022,
+                  ticker == "PG"   ~ -0.012,
+                  ticker == "TLT"  ~ -0.015,
+                  ticker == "SPY"  ~  0.010,
+                  ticker == "XOM"  ~  0.000,
+                  ticker == "MSFT" ~  0.000,
+                  ticker == "JPM"  ~  0.000,
+                  ticker == "AAPL" ~  0.000,
+                  ticker == "AMZN" ~  0.000
+                )
+              ),
+            aes(x = vol + nudge_x, y = ret + nudge_y, label = ticker),
+            size = 3.2, color = "grey30", fontface = "bold", hjust = 0) +
 
   # Tangency portfolio
   geom_point(data = tangency,
